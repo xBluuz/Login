@@ -95,16 +95,33 @@ img {
     border-style: solid;
     border-color: rgb(128, 0, 0);
 }
-p{
+
+p {
     margin-left: 18px;
 }
-input[type="text"],input[type="password"],input[type="email"]{
+
+input[type="text"],
+input[type="password"],
+input[type="email"] {
     border: none;
     background-color: transparent;
-    border-bottom:2px solid rgb(255, 255, 255) ;
+    border-bottom: 2px solid rgb(255, 255, 255);
     color: aliceblue;
 }
 
-input:focus{
-outline: none;
+input:focus {
+    outline: none;
+}
+
+.botonn {
+    display: flex;
+    align-items: start;
+    justify-content: flex-start;
+    text-align: start;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    margin: 15px;
+    margin-left: 25px;
+    margin-top: 17px;
 }

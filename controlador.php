@@ -7,8 +7,14 @@ if (!empty($_POST['aceptar'])) {
     } else{
         $usuario = $_POST["usuario"];
         $contraseña = hash("sha256",$_POST["contraseña"]);
-        $sql = $conexion->query("SELECT * FROM login1 WHERE user='$usuario' AND password='$contraseña'");
-        if ($datos=$sql->fetch_object()) {
+
+        $stmt = $conexion->prepare("SELECT * FROM login1 WHERE user=? AND password=?");
+
+        $stmt->bind_param('ss', $usuario, $contraseña);
+        $stmt->execute();
+
+        $result = $stmt->get_result();
+        if ($datos = $result->fetch_object()) {
             setcookie('login', "True", time()+ 0*24*60*60,'/');  
             
             header("Location: prueba.php");
